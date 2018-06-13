@@ -1,0 +1,7 @@
+Pour connecter l'application à votre base de données, il vous suffit d'aller dans /components/bdd.php 
+et de remplacer : 
+
+host=localhost par host=<votre nom d'hôte>
+dbname=eval_hotel par dbname=<nom de votre database>
+'root' par '<Nom d'utilisateur de votre base de données>'
+'simplonco' par '<Mot de passe de votre base de données>'
