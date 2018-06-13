@@ -9,9 +9,14 @@ include 'components/nav.php';
 include 'components/bdd.php';
 
 $id = $_GET['id'];
+
+
+if(isset($_GET['id'])){
+    echo '<h2 class="text-center">Modification réservation</h2>';
+}else{
+    echo '<h2 class="text-center">Création réservation</h2>';
+}
 ?>
-
-
 
 <div class="container text-center">
     <form method="POST" action="add_modify_reservation.php?id=<?php echo $id ?>">
@@ -24,7 +29,7 @@ $id = $_GET['id'];
                 if(isset($_GET['id'])){
                     $retrieve_client = $bdd->query('SELECT clients.id, reservations.clientId, clients.nom, clients.prenom FROM clients, reservations WHERE clients.id = reservations.clientId AND reservations.id='.$_GET['id'].'');
                     $ret_fetch_client = $retrieve_client->fetch();
-                    echo '<option value="'.$ret_fetch_client['id'].'" selected>'.$ret_fetch_client['prenom'].' '.$ret_fetch_client['nom'].'</option>';
+                    echo '<option value="'.$ret_fetch_client['clientId'].'" selected>'.$ret_fetch_client['prenom'].' '.$ret_fetch_client['nom'].'</option>';
                 }
                 while($client = $sql->fetch()){
                     if($ret_fetch_client['clientId'] == $client['id']){
@@ -45,7 +50,7 @@ $id = $_GET['id'];
                 if(isset($_GET['id'])){
                     $retrieve_chambre = $bdd->query('SELECT reservations.id, reservations.chambreId, chambres.nom, chambres.numero FROM chambres, reservations WHERE chambres.id = reservations.chambreId AND reservations.id='.$_GET['id'].'');
                     $ret_fetch_chambre = $retrieve_chambre->fetch();
-                    echo '<option value="'.$ret_fetch_chambre['id'].'" selected>N°'.$ret_fetch_chambre['numero'].' : '.$ret_fetch_chambre['nom'].'</option>';
+                    echo '<option value="'.$ret_fetch_chambre['chambreId'].'" selected>N°'.$ret_fetch_chambre['numero'].' : '.$ret_fetch_chambre['nom'].'</option>';
                 }
                 while($chambre = $sql->fetch()){
                     if($ret_fetch_chambre['chambreId'] == $chambre['id']){

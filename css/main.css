@@ -9,4 +9,7 @@
     .desktop {
         display: none;
     }
+    th, td {
+        padding: 0 !important;
+    }
 }

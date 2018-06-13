@@ -7,13 +7,13 @@
     if(strstr($_SERVER['SCRIPT_FILENAME'], 'index')){
     ?>
     <form method="post">
-    <select class="form-inline" name="select" id="exampleFormControlSelect1">
-        <option>Filtres</option>
-        <option>Validées</option>
-        <option>Refusées</option>
-        <option>En attente</option>
-    </select>
-    <button type="submit" name="submit" class="btn btn-success">Valider</button>
+        <select class="form-inline" name="select" id="exampleFormControlSelect1">
+            <option>Filtres</option>
+            <option>Validées</option>
+            <option>Refusées</option>
+            <option>En attente</option>
+        </select>
+        <button type="submit" name="submit" class="btn btn-success">Valider</button>
     </form>
     <a href="add_reservation.php"><button class="btn btn-primary">Ajouter une réservation</button></a>
     <?php 

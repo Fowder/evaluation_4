@@ -8,15 +8,15 @@ include 'components/nav.php';
 
 include 'components/bdd.php';
 ?>
-<table class="table">
+<table class="table table-dark table-striped">
     <thead class="thead-dark">
         <tr>
-            <th>ID<i class="fa fa-fw fa-sort desktop"></i></th>
-            <th>Client<i class="fa fa-fw fa-sort desktop"></i></th>
-            <th>Chambre<i class="fa fa-fw fa-sort desktop"></i></th>
-            <th>Dates<i class="fa fa-fw fa-sort desktop"></i></th>
-            <th class="desktop">Statut<i class="fa fa-fw fa-sort"></i></th>
-            <th>Actions</th>
+            <th scope="col">ID<i class="fa fa-fw fa-sort desktop"></i></th>
+            <th scope="col">Client<i class="fa fa-fw fa-sort desktop"></i></th>
+            <th scope="col"><span class="desktop">Chambre</span><span class="mobile">Bed</span><i class="fa fa-fw fa-sort desktop"></i></th>
+            <th scope="col">Dates<i class="fa fa-fw fa-sort desktop"></i></th>
+            <th scope="col" class="desktop">Statut<i class="fa fa-fw fa-sort"></i></th>
+            <th scope="col">Actions</th>
         <tr>
     </thead>
     <tbody>
@@ -50,9 +50,9 @@ include 'components/bdd.php';
         while($reservation = $reservations->fetch()){
             echo '<tr>';
                 echo '<td>'.$reservation['id'].'</td>';
-                echo '<td>'.$reservation['prenom'].' '.$reservation['nom'].'</td>';
-                echo '<td>N° '.$reservation['numero'].'</td>';
-                echo '<td>Du '.substr ($reservation['dateEntree'], 0 , 10).' au '.substr ($reservation['dateSortie'], 0 , 10).'</td>';
+                echo '<td><span class="desktop">'.$reservation['prenom'].' </span>'.$reservation['nom'].'</td>';
+                echo '<td><span class="desktop">N° </span>'.$reservation['numero'].'</td>';
+                echo '<td><span class="desktop">Du </span>'.substr ($reservation['dateEntree'], 0 , 10).'<span class="desktop"> au '.substr ($reservation['dateSortie'], 0 , 10).'</span></td>';
                 echo '<td class="desktop">'.$reservation['statut'].'</td>';
                 echo '<td class="desktop"><a href="add_reservation.php?id='.$reservation['id'].'">Editer</a> - <a href="delete_reservation.php?id='.$reservation['id'].'">Supprimer</a></td>
                 <td class="mobile">
